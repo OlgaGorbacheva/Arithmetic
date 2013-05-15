@@ -32,7 +32,7 @@ public:
     UsingType & operator[](unsigned int const);
     void PushBack(UsingType);
     void DelLast();
-    int GetSize();
+    unsigned int GetSize() const;
 };
 
 #include "classVector.cpp"

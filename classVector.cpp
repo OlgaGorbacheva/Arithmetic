@@ -79,7 +79,7 @@ UsingType & my::vector<UsingType>::operator[](unsigned int const k)
                 MemoryGrow();
         }
         catch(bad_alloc){
-            abort();
+            cerr << "Memory allocation error" << endl;
         }
         for (;VectorSize <= k; VectorSize++){
             new ((UsingType*)Pointer + VectorSize) UsingType();
@@ -110,7 +110,7 @@ void my::vector<UsingType>::DelLast()
 }
 
 template <class UsingType>
-int my::vector<UsingType>::GetSize()
+unsigned int my::vector<UsingType>::GetSize() const
 {
     return VectorSize;
 }
