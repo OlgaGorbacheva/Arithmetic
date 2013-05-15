@@ -358,6 +358,9 @@ my::LongInt my::operator /(my::LongInt const &_a, my::LongInt const &_b)
     if (_a.number.GetSize() < _b.number.GetSize())
         return 0;
     my::LongInt r, retVal;
+    if ((_a.sign && _b.sign) || (!_a.sign && !_b.sign))
+        retVal.sign = true;
+    else retVal.sign = false;
     my::vector<unsigned char> result;
     int k;
     int m = _b.number.GetSize(); int n = _a.number.GetSize() - m;
